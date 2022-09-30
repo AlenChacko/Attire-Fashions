@@ -1,0 +1,49 @@
+<section style="margin-left:500px">
+  <div class=" container row">
+    <div class="ml-5 col-md-6">
+      <h2 class="text-center mt-5">Edit Products</h2>
+      <form action="/admin/editproducts/{{products._id}}" method="post" enctype="multipart/form-data" class="text-danger" id="editProduct">
+
+        <label class="text-dark" for="">Name</label>
+        <input type="text" name="name" class="form-control bg-white mt-3" value="{{products.name}}" required><br>
+
+       
+
+        <label for="" class="text-dark">Description</label>
+        <input type="text" name="description" class="form-control bg-white mt-3" value="{{products.description}}" required><br>
+         <label class="text-dark" for="">Salect Category</label><br>
+        <select  name="category" class="form-select bg-white mt-3" id="" required>
+          {{#each category}}
+          <option value="{{this.name}}">{{this.name}}</option>
+           {{/each}}
+        </select>
+
+        <label for="" class="text-dark">Price</label>
+        <input type="Number" name="price" class="form-control bg-white mt-3"value="{{products.price}}" required><br>
+
+       
+
+        <label for="" class="text-dark">Image</label>
+        <input type="file" name="Image" class="form-control bg-white mt-3" onchange="viewImage(event)" required><br>
+        <img src="/product-images/{{products._id}}.jpg" alt="" style="width:50px ; height:50; margin-left:-100px; margin-top:-280px" id="imgView">
+
+
+
+
+        <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<script>
+  $("#editProduct").validate();
+</script>

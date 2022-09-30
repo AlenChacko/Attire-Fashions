@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <table id="categoryTable" class="table table-striped table-bordered dt-responsive nowrap ms-auto mt-auto mt-5"
+    style="width: 80%;">
+
+    <thead>
+
+        <tr>
+            {{!-- <th>No</th> --}}
+            <th>Category</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      {{#each category}}
+        <tr>
+            {{!-- <td>{{inc @index}}</td> --}}
+            <td>{{this.name}}</td>
+            <td>
+            <a href="/admin/deletecategory/{{this._id}}" class="btn btn-danger btn-sm ms-2" onclick="return confirm('Are you sure about deleting this item')">Delete</a></td>
+           {{/each}}
+        </tr>
+
+       
+
+    </tbody>
+
+</table>
+
+
+</div>

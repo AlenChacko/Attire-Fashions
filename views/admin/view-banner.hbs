@@ -1,0 +1,48 @@
+
+            
+   <div class="container mt-5">
+    <table id="bannerTable" class="table table-striped table-bordered dt-responsive nowrap ms-auto mt-5" style="width: 80%;">
+        <thead>
+            <tr>
+                {{!-- <th scope="col">Number</th> --}}
+                <th scope="col">Name</th>
+                <th scope="col">Discription</th>
+                <th scope="col">Image</th>
+                <th></th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            {{#each banner}}
+            <tr>
+                {{!-- <th scope="row">{{inc @index}}</th> --}}
+                <td>{{this.name}} </td>
+                <td>{{this.description}} </td>
+                <td><img src="/banner-images/{{this._id}}.jpg" style="width:100px;"></td>
+                <td>                           
+                    <a href="/admin/edit-banner/{{this._id}}" class="btn btn-primary">Edit</a>
+                    <a href="/admin/delete-banner/{{this._id}}" class="btn btn-danger"
+                    onclick="return confirm('Are you sure to Delete {{this.name}}?')">Delete</a>
+                    </td>
+            </tr>
+
+                                        
+            {{/each}}
+        </tbody>
+
+   </table>
+   </div>
+
+
+<script>
+    $(document).ready(function () {
+
+
+        $('#bannerTable').wrap('<div id="hide" style="display:none"/>');
+
+        $('#hide').css('display', 'block');
+    });
+
+
+    var table = $('#bannerTable').DataTable();
+</script>

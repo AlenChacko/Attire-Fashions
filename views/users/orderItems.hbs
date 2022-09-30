@@ -1,0 +1,269 @@
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');"
+  data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate mb-5 text-center">
+        <p class="breadcrumbs mb-0"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span>
+          <span><a href="/products"> <i class="fa fa-chevron-right"></i></a></span> <span>Ordered Item <i
+              class="fa fa-chevron-right"></i></span>
+        </p>
+        <h2 class="mb-0 bread">Order Item</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container py-5">
+    <div class="row text-center text-white mb-5">
+      <div class="col-lg-7 mx-auto">
+        <h1 class="display-4">Ordered Item</h1>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-8 mx-auto">
+
+        <!-- List group-->
+        <ul class="list-group shadow">
+          <!-- list group item-->
+          <li class="list-group-item">
+            <!-- Custom content-->
+
+
+            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+              <div class="media-body order-2 order-lg-1">
+                <p class="text-muted"> Order ID : <span class="font-weight-bold text-dark">{{orders._id}}</span></p>
+                <p class="text-muted"> Placed On : <span class="font-weight-bold text-dark">{{orders.date}}</span> </p>
+
+                <h5 class="mt-0 font-weight-bold mb-2">{{orders.productDetails.name}}</h5>
+                <p class="font-italic text-muted mb-0 small">{{orders.productDetails.description}}</p>
+                <div class="d-flex align-items-center justify-content-between mt-1">
+                  <h6 class="font-weight-bold my-2"> Price ₹ {{orders.productDetails.price}}</h6>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-1">
+                  <h6 class="font-weight-bold my-2">Quantity : {{orders.products.quantity}}</h6>
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-1">
+                  {{#if orders.products.delivered}}
+                  <p class="text-success">Item delivered on <br>{{orders.products.deliveryDate}}</p>
+                  {{else if orders.products.cancelled}}
+                  <p class="text-danger">Order cancelled</p>
+                  {{else}}
+                  <a href="/cancelOrder/{{orders._id}}/{{orders.productDetails._id}}" class="btn btn-danger">Cancel Order</a>
+                  {{/if}}
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-1">
+                  <h6 class="font-weight-bold my-2">Order Status : {{orders.products.status}}</h6>
+                </div>
+
+
+
+              </div><img src="/product-images/{{orders.productDetails._id}}.jpg" alt="Generic placeholder image"
+                width="200" class="ml-lg-5 order-1 order-lg-2">
+            </div>
+
+
+
+            <!-- End -->
+            {{!-- Place Progress Bar here --}}
+          </li> <!-- End -->
+          <!-- list group item-->
+        </ul> <!-- End -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="ftco-footer">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-sm-12 col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2 logo"><a href="#">Attire <span>Fashions</span></a></h2>
+          <p>Far far away, behind the word mountains, far from the countries.</p>
+          <ul class="ftco-footer-social list-unstyled mt-2">
+            <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+            <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+            <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">My Accounts</h2>
+          <ul class="list-unstyled">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">Information</h2>
+          <ul class="list-unstyled">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Quick Link</h2>
+          <ul class="list-unstyled">
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
+            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Have a Questions?</h2>
+          <div class="block-23 mb-3">
+            <ul>
+              <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San
+                  Francisco, California, USA</span></li>
+              <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+              <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span
+                    class="text">info@yourdomain.com</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid px-0 py-5 bg-black">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <p class="mb-0" style="color: rgba(255,255,255,.5);">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+            <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+              target="_blank">Colorlib.com</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+  </svg></div>
+
+
+
+<style>
+  body {
+    min-height: 100vh
+  }
+
+  .text-gray {
+    color: #aaa
+  }
+
+  img {
+    height: 170px;
+    width: 140px
+  }
+
+  .bs4-order-tracking {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #878788;
+    padding-left: 0px;
+    margin-top: 30px
+  }
+
+  .bs4-order-tracking li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+    color: #878788;
+    text-align: center
+  }
+
+  .bs4-order-tracking li:first-child:before {
+    margin-left: 15px !important;
+    padding-left: 11px !important;
+    text-align: left !important
+  }
+
+  .bs4-order-tracking li:last-child:before {
+    margin-right: 5px !important;
+    padding-right: 11px !important;
+    text-align: right !important
+  }
+
+  .bs4-order-tracking li>div {
+    color: #fff;
+    width: 29px;
+    text-align: center;
+    line-height: 29px;
+    display: block;
+    font-size: 12px;
+    background: #878788;
+    border-radius: 50%;
+    margin: auto
+  }
+
+  .bs4-order-tracking li:after {
+    content: '';
+    width: 150%;
+    height: 2px;
+    background: #878788;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 15px;
+    z-index: -1
+  }
+
+  .bs4-order-tracking li:first-child:after {
+    left: 50%
+  }
+
+  .bs4-order-tracking li:last-child:after {
+    left: 0% !important;
+    width: 0% !important
+  }
+
+  .bs4-order-tracking li.active {
+    font-weight: bold;
+    color: #dc3545
+  }
+
+  .bs4-order-tracking li.active>div {
+    background: #dc3545
+  }
+
+  .bs4-order-tracking li.active:after {
+    background: #dc3545
+  }
+
+  .card-timeline {
+    background-color: #fff;
+    z-index: 0
+  }
+</style>

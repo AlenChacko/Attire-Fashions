@@ -1,0 +1,135 @@
+
+
+<section class="login py-3 bg-light">
+    <div class="container">
+        <div class="row g-0  ">
+            <div class="col-lg-5">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" class="img-fluid h-100" alt="">
+            </div>
+            <div class="col-lg-7 text-center py-2 mt-2">
+                <a class="navbar-brand " style="font-size: 2rem;" href="">Attire <span>Fashions</span></a>
+                {{#if signupErr}}
+                <p class="text-danger">{{signupErr}}</p>
+                {{/if}}
+                <form action="/signup" method="post" id="signupForm" name="signpform">
+                    <div class="form-row py-3 pt-2">
+                        <div class="offset-1 col-lg-10">
+                            <input type="text" class="inp px-3" name="name" placeholder="Enter your full name" required minlength="4">
+                        </div>
+                    </div>
+                     <div class="form-row py-3 pt-2">
+                        <div class="offset-1 col-lg-10">
+                            <input type="email" class="inp px-3" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                     <div class="form-row py-3 pt-2">
+                        <div class="offset-1 col-lg-10">
+                            <input type="number" class="inp px-3" name="phone" placeholder="Enter your phone" required minlength="10" maxlength="10">
+                        </div>
+                    </div>
+                     <div class="form-row py-3 pt-2">
+                        <div class="offset-1 col-lg-10">
+                            <input type="password" class="inp px-3" name="password" placeholder="Create a password" required id="password" minlength="6">
+                        </div>
+                    </div>
+                    <div class="form-row py-3 pt-2">
+                        <div class="offset-1 col-lg-10">
+                            <input type="password" class="inp px-3" name="cpassword" placeholder="Confirm your password" equalTo="#password" required minlength="6">
+                        </div>
+                    </div>
+                    <div class="form-row py-3 pt-2">
+                        <div class="offset-1 col-lg-10">
+                            <button class="btn1" type="submit">Request OTP</button>
+                        </div>
+                    </div>
+                <p>
+                    Already have an account?
+                </p>
+                <p>
+                     <a href="/login" class="tag">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+  </script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js">
+  </script>
+<script>
+  $("#signupForm").validate();
+</script>
+
+
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.row{
+    background: white;
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px;
+}
+.login img{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.login h1{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.inp[type=number] {
+  -moz-appearance: textfield;
+}
+.inp::-webkit-outer-spin-button,
+.inp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inp{
+    height: 50px;
+    width: 70%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    -webkit-box-shadow: -1px 2px 30px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 30px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 30px 0px rgba(0,0,0,0.75);
+}
+.btn1{
+    height: 50px;
+    width: 50%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    font-weight: 600;
+    background: rgb(223, 56, 56);
+    color: white;
+
+}
+.btn1:hover{
+    background: brown;
+    transition: 0.5s;
+}
+.tag{
+    color: black;
+    text-decoration: none;
+}
+.error{
+    color: red;
+}
+</style>
+
+
+
+
+
+
+
+

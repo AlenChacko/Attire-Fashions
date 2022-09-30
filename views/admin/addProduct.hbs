@@ -1,0 +1,44 @@
+<section style="margin-left:500px">
+  <div class=" container row">
+    <div class="ml-5 col-md-6">
+      <h2 class="text-center mt-5">Add Products</h2>
+      <form action="/admin/addproducts" method="post" enctype="multipart/form-data" class="text-danger" id="addProduct">
+
+        <label class="text-white" for="">Name</label>
+        <input type="text" name="name" class="form-control bg-white mt-3" required><br>
+
+       
+
+        <label for="" class="text-white">Description</label>
+        <input type="text" name="description" class="form-control bg-white mt-3" required>
+        <br>
+         <label class="text-white" for="">Salect Category</label><br>
+        <select  name="category" class="form-select bg-white mt-3" id="" required>
+          {{#each category }}
+          <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+
+        <label for="" class="text-white">Price</label>
+        <input type="Number" name="price" class="form-control bg-white mt-3" required><br>
+
+       
+
+        <label for="" class="text-white">Image</label>
+        <input type="file" name="Image" class="form-control bg-white mt-3" required><br>
+        
+
+
+
+        <button type="submit" class="btn btn-success mt-4">Submit</button>
+
+      </form>
+    </div>
+  </div>
+</section>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<script>
+  $("#addProduct").validate();
+</script>

@@ -1,0 +1,227 @@
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate mb-5 text-center">
+          	<p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Profile <i class="fa fa-chevron-right"></i></span></p>
+            <h2 class="mb-0 bread">My Profile</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="mt-5">
+        <div class="container ">
+		<div class="main-body">
+			<div class="row" >
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-body">
+							<form class="d-flex flex-column align-items-center text-center" action="/profilePhoto" method="post" enctype="multipart/form-data">
+								<img src="/user-images/{{userInfo._id}}.jpg" alt="" class="rounded-circle p-1 bg-primary" width="150" height="150">
+                <input type="file" name="Image" class="form-control mt-3" value="/user-images/{{userInfo._id}}.jpg"  onchange="viewImage(event)" required>
+                <button type="submit" class="btn btn-success mt-3">Save</button>
+								<div class="mt-3">
+									<h2> {{userInfo.name}}</h2>
+								</div>
+							</form>
+							<hr class="my-4">
+              <div class="d-flex align-items-center justify-content-center flex-column">
+                 <h4>Profile Info</h4>
+                <a href="/address" class="btn btn-light"><p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+              </svg></p>Manage Address</a>
+                <a href="/resetPassword" class="btn btn-light m-3"><p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock-fill" viewBox="0 0 16 16">
+                <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+              </svg></p>Reset Your Password</a>
+              <a href="/logout" class="btn btn-light"><p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                <path d="M7.5 1v7h1V1h-1z"/>
+                <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
+              </svg></p>Logout</a>
+              </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+          <div class="d-flex justify-content-center align-items-center">
+            <a href="/cart" class="btn btn-light"><p><span class="flaticon-shopping-bag active"></span></p>My Cart</a>
+                <a href="/wishlist" class="m-3 btn btn-light"><p><span class="flaticon-heart active"></span></p>My Wishlist</a>
+                <a href="/myOrders" class="btn btn-light"><p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg></p>My Orders</a>
+          </div>
+           <h4>Edit Profile</h4>
+					<form class="card" action="/updateProfile" method="post" enctype="multipart/form-data">
+						<div class="card-body">
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0 mt-3">Full Name</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" value="{{userInfo.name}}" name="name">
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0 mt-3">Email</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" value="{{userInfo.email}}" name="email" readonly>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0 mt-3">Phone</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" value="{{userInfo.phone}}" name="phone" readonly >
+								</div>
+							</div>
+							
+                            
+              {{!-- <div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0 mt-3">Address</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<textarea type="text" class="form-control" name="address">{{userInfo.userAddress}}</textarea>
+								</div>
+							</div> --}}
+              <div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0 mt-3">Gender</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+                  {{#if userInfo.radio}}
+                  <label for=""><input type="radio" name="gender" value="male" checked>Male</label>
+                  <label for=""><input type="radio" class="ml-3" name="gender" value="female">Female</label>
+                  {{else}}
+                  <label for=""><input type="radio" name="gender" value="male">Male</label>
+                  <label for=""><input type="radio" class="ml-3" name="gender" value="female" checked>Female</label>
+                   {{/if}}
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-9 text-secondary">
+									<button class="btn btn-primary" type="submit">Save Info</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    </section>
+
+
+
+
+
+    <footer class="ftco-footer mt-5">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2 logo"><a href="#">Attire <span>Fashions</span></a></h2>
+              <p>Far far away, behind the word mountains, far from the countries.</p>
+              <ul class="ftco-footer-social list-unstyled mt-2">
+                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">My Accounts</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Quick Link</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid px-0 py-5 bg-black">
+      	<div class="container">
+      		<div class="row">
+	          <div class="col-md-12">
+		
+	            <p class="mb-0" style="color: rgba(255,255,255,.5);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	          </div>
+	        </div>
+      	</div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script>
+    body{
+    background: #f7f7ff;
+    margin-top:20px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+}
+.me-2 {
+    margin-right: .5rem!important;
+}
+  </script>
