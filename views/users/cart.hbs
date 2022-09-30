@@ -508,8 +508,9 @@
 				product: proId,
 				count: count,
 				quantity: quantity
-				//location.reload()
 			},
+				//window.location.reload()
+
 			//$("#final").load(location.href + " #final");
 			method: 'post',
 			success: (response) => {
@@ -529,7 +530,7 @@
 
 
 								});
-								location.reload()
+								window.location.reload()
 
 							} else {
 								Swal.fire("Your item is here!");
